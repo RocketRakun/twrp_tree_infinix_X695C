@@ -1,22 +1,14 @@
 #
 # Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 The TWRP Open Source Project
 # Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
 DEVICE_PATH := device/infinix/radiant
+
+# Minimal depends
+ALLOW_MISSING_DEPENDENCIES := true
 
 # Boot with Recovery Ramdisk
 BOARD_USES_RECOVERY_AS_BOOT := true
@@ -120,7 +112,6 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
-BOARD_SUPPORTS_F2FS := true
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -128,6 +119,7 @@ BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
+BOARD_ROOT_EXTRA_FOLDERS += metadata
 
 # Dynamic Partition
 BOARD_SUPER_PARTITION_SIZE := 7516192768
@@ -154,11 +146,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS := true
-TARGET_RECOVERY_FSTAB_VERSION := 2
-TARGET_USES_FBE := true
-TARGET_USES_FBE_2 := true
-TARGET_INCLUDE_FBE_METADATA := true
-TARGET_ENABLE_INLINE_CRYPTO := true
 
 # Workaround for error copying vendor files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
@@ -176,6 +163,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 
 # Hack: prevent anti rollback
@@ -207,6 +195,7 @@ TW_INCLUDE_FASTBOOTD := true
 TW_SUPPORTS_AB := true
 TW_HAS_SDCARD := true
 TW_INCLUDE_LIBLP := true
+TW_USB_STORAGE := true
 TW_DEVICE_VERSION := Radiant-040125 | Gilanggegea
 
 # Debug 
@@ -218,6 +207,3 @@ TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := "300"
 TW_CUSTOM_CLOCK_POS := "70"
 TW_CUSTOM_BATTERY_POS := "790"
-
-# Minimal depends
-ALLOW_MISSING_DEPENDENCIES := true
