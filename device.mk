@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/infinix/radiant
+LOCAL_PATH := device/infinix/Infinix-X695C
 
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)

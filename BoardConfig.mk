@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/infinix/radiant
+DEVICE_PATH := device/infinix/Infinix-X695C
 
 # Minimal depends
 ALLOW_MISSING_DEPENDENCIES := true
@@ -42,7 +42,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := radiant,X695C
+TARGET_OTA_ASSERT_DEVICE := Infinix-X695C,X695C
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := mt6785
@@ -196,7 +196,7 @@ TW_SUPPORTS_AB := true
 TW_HAS_SDCARD := true
 TW_INCLUDE_LIBLP := true
 TW_USB_STORAGE := true
-TW_DEVICE_VERSION := Radiant-040125 | Gilanggegea
+TW_DEVICE_VERSION := Infinix-X695C | RocketRakun
 
 # Debug 
 TWRP_INCLUDE_LOGCAT := false
@@ -207,3 +207,7 @@ TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := "300"
 TW_CUSTOM_CLOCK_POS := "70"
 TW_CUSTOM_BATTERY_POS := "790"
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_Infinix-X695C
+TARGET_RECOVERY_DEVICE_MODULES := libinit_Infinix-X695C
