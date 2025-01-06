@@ -63,7 +63,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export FOX_DELETE_AROMAFM=1
     export FOX_ENABLE_APP_MANAGER=1
     export OF_DEFAULT_KEYMASTER_VERSION=4.0
-
+    export FOX_EXTREME_SIZE_REDUCTION=1
+    
     # R11.1 Settings
     export FOX_VERSION="R11.1_1"
     export FOX_BUILD_TYPE="Stable"
